@@ -33,6 +33,11 @@
         display: flex;
         flex-direction: column;
     }
+
+    .kf-content_list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
 }
 
 @media (max-width: 768px) {
@@ -128,4 +133,13 @@
 
         z-index: 9;
     }
+
+    .kf-content_list {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+    
 }

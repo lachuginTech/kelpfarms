@@ -88,7 +88,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family);
     color: var(--grey-1);
-
+    font-weight: 500;
 }
 
 p {
@@ -200,10 +200,20 @@ img {
     grid-template-columns: repeat(12, 1fr); 
 }
 
+.grid-layout {
+    display: grid;
+    grid-template-columns: 216px 1fr;
+    grid-gap: 21px;
+}
+
 
 .grid-center {
     justify-content: center;
     align-items: center;
+}
+
+section {
+    padding: 80px 0;
 }
 
 
@@ -300,7 +310,7 @@ img {
     max-width: 661px;
 }
 
-.header__line {
+.line {
     width: 100%;
     height: 1px;
     background-color: var(--white);
@@ -352,3 +362,210 @@ img {
 .btn--gap {
     column-gap: 50px;
 }
+/* kf-content */
+.intro-block {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.intro-block__title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: var(--font-size-base);
+    line-height: 125%;
+    text-transform: uppercase;
+    color: var(--grey-1);
+}
+
+.kf-content__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+
+.kf-content_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 80px;
+    column-gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 926px;
+}
+
+.kf-content__item-title {
+    font-family: var(--font-family);
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 107%;
+    text-transform: uppercase;
+    color: var(--grey-1);
+    margin-bottom: 20px;
+}
+
+.kf-content__item-text {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    opacity: 0.5;
+    color: var(--grey-1);
+}
+
+.kf-content__content .line {
+    max-width: 926px;
+    background: var(--grey-1);
+    opacity: 0.1;
+}
+
+.kf-content__title {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 110%;
+    color: var(--grey-1);
+}
+
+.kf-content__title--right {
+    max-width: 818px;
+}
+
+.kf-content__video {
+    margin-top: 62px;
+    position: relative;
+    max-width: 926px;
+}
+
+.link-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+    opacity: 1;
+}
+
+.link-video::after {
+    content: '';
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+
+/* custom-select */
+.custom-select {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.select-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    position: relative;
+}
+
+.select-box::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #333;
+}
+
+.options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #fff;
+    z-index: 1;
+    display: none;
+}
+
+.option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background-color: #f1f1f1;
+}
+
+.select-box.active + .options {
+    display: block;
+}
+
+/* Кастомный чекбокс */
+.option-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    user-select: none; 
+  }
+  
+  .option-checkbox .default-checkbox {
+    display: none;
+  }
+  
+
+  .option-checkbox .custom-checkbox {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  
+  .option-checkbox .custom-checkbox::before {
+    display: none;
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 18px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0081f1;
+  }
+  
+  
+  .option-checkbox .default-checkbox:checked + .custom-checkbox::before {
+    display: block;
+  }
