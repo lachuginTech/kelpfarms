@@ -78,3 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
         truncateText(element, maxHeight);
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.news__text-donate').forEach(element => {
+        const parent = element.closest('.news__inner');
+        const title = parent.querySelector('.news__title');
+        const link = parent.querySelector('.news__link');
+        
+        const titleHeight = title ? title.offsetHeight : 0;
+        const linkHeight = link ? link.offsetHeight : 0;
+
+        const maxHeight = 260 - titleHeight - linkHeight - 65;
+
+        truncateText(element, maxHeight);
+    });
+});
